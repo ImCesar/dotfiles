@@ -1,3 +1,8 @@
+let mapleader = " "
+
+" source init
+nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+
 " finding
 nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 noremap <leader>ft <cmd>lua require('telescope.builtin').live_grep()<CR>
@@ -15,3 +20,17 @@ nnoremap <leader>gn :lua vim.lsp.diagnostic.goto_next()<CR>
 
 "git
 nnoremap <silent> <leader>gg :LazyGit<CR>
+
+"nvim-tree
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" default nvim-tree keybinds
+" https://github.com/kyazdani42/nvim-tree.lua#keybindings

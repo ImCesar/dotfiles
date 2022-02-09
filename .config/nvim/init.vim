@@ -7,6 +7,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'cohama/lexima.vim'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Fuzzy finding
 Plug 'nvim-lua/plenary.nvim'
@@ -26,10 +28,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
-let mapleader = " "
-nnoremap <leader>pv :Vex<CR>
-nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
-
+" Theme
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 set background=dark
