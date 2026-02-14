@@ -14,11 +14,16 @@ Run `./install.sh` to symlink configs and install vim-plug. After install, open 
 
 ### Claude Code (`.claude/`)
 
-Only portable config is tracked — ephemeral data (history, cache, sessions, telemetry) is machine-local. `install.sh` symlinks individual files rather than the whole `~/.claude` directory:
+Only portable config is tracked — ephemeral data (history, cache, sessions, telemetry) is machine-local. `install.sh` uses two strategies:
 
-- **`CLAUDE.md`** — User-level instructions applied to all projects.
+**Symlinked files** (single source of truth):
+- **`CLAUDE.md`** — User-level instructions (mandatory 4-phase workflow).
 - **`settings.json`** — Permissions, hooks, and enabled plugins.
-- **`skills/`** — Custom skill definitions (symlinked as a directory).
+
+**Copied directories** (merged into `~/.claude/` without overwriting plugin-installed items):
+- **`skills/`** — Custom skill definitions (e.g., `cesarpowers/development-workflow`).
+- **`agents/`** — Custom agent definitions (placeholder for now).
+- **`keybindings/`** — Custom keybindings (placeholder for now).
 
 ### Neovim (`.config/nvim/`)
 

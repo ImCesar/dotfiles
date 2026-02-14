@@ -18,12 +18,15 @@ fi
 ##################################
 # claude code
 ##################################
-mkdir -p $HOME/.claude
+mkdir -p $HOME/.claude $HOME/.claude/skills $HOME/.claude/agents
 
+# individual files — symlink
 ln -sf $(pwd)/.claude/CLAUDE.md $HOME/.claude/CLAUDE.md
 ln -sf $(pwd)/.claude/settings.json $HOME/.claude/settings.json
 
-if [ -d $HOME/.claude/skills ] ; then
-  rm -rf $HOME/.claude/skills
-fi
-ln -sf $(pwd)/.claude/skills $HOME/.claude/skills
+# directories — copy contents in (don't nuke plugin-installed items)
+for dir in skills agents; do
+  if [ -d "$(pwd)/.claude/$dir" ]; then
+    find "$(pwd)/.claude/$dir" -mindepth 1 -maxdepth 1 -type d -exec cp -r {} "$HOME/.claude/$dir/" \;
+  fi
+done
